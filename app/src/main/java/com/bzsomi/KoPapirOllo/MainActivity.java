@@ -1,5 +1,7 @@
 package com.bzsomi.KoPapirOllo;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity{
     private ImageView imgC, imgH;
     private TextView textC, textG, textH;
     private Button btnK, btnP, btnO;
+    int hpH, hpC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,9 @@ public class MainActivity extends AppCompatActivity{
         btnK = findViewById(R.id.btnKo);
         btnP = findViewById(R.id.btnPapir);
         btnO = findViewById(R.id.btnOllo);
+        textG.setText("Eredmény Ember:0 Gép: 0");
+        hpC = 0;
+        hpH = 0;
     }
 
     public void Genrated(int tipp) {
@@ -69,5 +76,27 @@ public class MainActivity extends AppCompatActivity{
         //textG.setText(tipp==0 && szam==2 || tipp == 1 && szam == 0 || tipp == 2 && szam == 1 ? "nyert" : szam == tipp ? "döntetlen" : "vesztet");
         String back = (tipp==0 && szam==2 || tipp == 1 && szam == 0 || tipp == 2 && szam == 1 ? "nyert" : szam == tipp ? "döntetlen" : "vesztet");
         Toast.makeText(getApplicationContext(), back, Toast.LENGTH_SHORT).show();
+        if (tipp==0 && szam==2 || tipp == 1 && szam == 0 || tipp == 2 && szam == 1){hpH++;}
+        else if(szam == tipp){}
+        else{hpC++;}
+        textG.setText("Eredmény Ember:"+hpH+" Gép: "+hpC);
+        Alerter();
+    }
+
+    public void Alerter(){
+        if (hpH == 3 ^ hpC == 3){
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("A játék véget ért!");
+            alert.setMessage("Szeretne újra játszani");
+            alert.setNegativeButton("Igen", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) { intit(); }
+            });
+            alert.setPositiveButton("Nem", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) { System.exit(0); }
+            });
+            alert.create().show();
+        }
     }
 }
