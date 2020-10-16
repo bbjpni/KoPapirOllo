@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="40dp"
             android:text="A te válaszod"
+            android:id="@+id/textHuman"
             android:gravity="center"
             />
 
@@ -40,12 +41,14 @@
             android:textSize="40dp"
             android:text="A gép válaszod"
             android:gravity="center"
+            android:id="@+id/textComputer"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="Eredmény Ember:0 Gép: 0"
+            android:id="@+id/textMenet"
             android:gravity="center"
             />
 
@@ -58,18 +61,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
         <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-            android:text="KŐ">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KŐ"
+            android:id="@+id/btnKo">
         </Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PAPÍR">
+            android:text="PAPÍR"
+            android:id="@+id/btnPapir">
         </Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnOllo"
             android:text="OLLÓ">
         </Button>
     </LinearLayout>
