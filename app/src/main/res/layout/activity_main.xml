@@ -61,22 +61,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KŐ"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/rock"
             android:id="@+id/btnKo">
         </Button>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PAPÍR"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/paper"
             android:id="@+id/btnPapir">
         </Button>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnOllo"
-            android:text="OLLÓ">
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/scissors"
+            android:id="@+id/btnOllo">
         </Button>
     </LinearLayout>
 
